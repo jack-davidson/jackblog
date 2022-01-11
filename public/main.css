@@ -1,6 +1,7 @@
 html {
-	--fg: #2e3440;
-	--bg: white
+	--fg: #2E2C2F;
+	--bg: white;
+	--light: grey;
 	color: var(--fg);
 	background-color: var(--bg);
 }
@@ -27,6 +28,10 @@ a:hover {
 .blogs {
 	font-size: 2em;
 	margin-top: 2em;
-	margin-left: 5em;
-	margin-right: 5em;
+	margin-left: 20%;
+	margin-right: 20%;
+}
+
+.blogdate {
+	color: var(--light);
 }
