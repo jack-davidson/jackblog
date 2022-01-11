@@ -3,11 +3,23 @@ package main
 import (
 	"fmt"
 	"html/template"
-	"log"
 	"time"
 
 	"github.com/gofiber/fiber/v2"
 )
+
+const (
+	TemplateRoot = "templates"
+)
+
+func RenderTemplate(c *fiber.Ctx, name string, data interface{}) error {
+	tmpl, err := template.ParseFiles(fmt.Sprintf("%s/%s.html", TemplateRoot, name))
+	if err != nil {
+		return err
+	}
+	c.Context().SetContentType("text/html")
+	return tmpl.Execute(c, data)
+}
 
 func main() {
 	app := fiber.New()
@@ -17,13 +29,7 @@ func main() {
 
 	app.Get("/", func(c *fiber.Ctx) error {
 		fmt.Println(c)
-		tmpl, err := template.ParseFiles("templates/index.html")
-		if err != nil {
-			log.Fatal(err)
-		}
-		c.Context().SetContentType("text/html")
-		tmpl.Execute(c, nil)
-
+		RenderTemplate(c, "index", nil)
 		return nil
 	})
 
