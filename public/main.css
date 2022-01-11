@@ -1,6 +1,7 @@
 html {
 	--fg: #2E2C2F;
 	--bg: white;
+	--accent: #FF6663;
 	--light: grey;
 	color: var(--fg);
 	background-color: var(--bg);
@@ -22,7 +23,7 @@ a {
 }
 
 a:hover {
-	text-decoration: underline;
+	text-decoration: underline var(--accent);
 }
 
 .blogs {

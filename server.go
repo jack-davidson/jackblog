@@ -33,5 +33,16 @@ func main() {
 		return nil
 	})
 
+	app.Get("/blogs/:title", func(c *fiber.Ctx) error {
+		fmt.Println(c.Params("title"))
+		RenderTemplate(c, "blog", nil)
+		return nil
+	})
+
+	app.Get("/blogs/", func(c *fiber.Ctx) error {
+		c.Redirect("/")
+		return nil
+	})
+
 	app.Listen(":3000")
 }
