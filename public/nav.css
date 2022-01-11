@@ -1,0 +1,28 @@
+nav {
+	color: var(--fg);
+	background-color: var(--bg);
+	font-family: 'Abril Fatface', cursive;
+	margin-top: 0.5em;
+	font-size: 3em;
+	background-color: white;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding-left: 1em;
+	padding-right: 1em;
+}
+
+.logo {
+	display: inline-block;
+}
+
+.nav-links {
+	display: flex;
+	list-style: none;
+	padding-right: 1em;
+}
+
+.nav-item {
+	padding-right: 1em;
+}
