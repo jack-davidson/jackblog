@@ -17,6 +17,10 @@ nav {
 	font-family: 'Abril Fatface', cursive;
 }
 
+.logo:hover {
+        text-decoration: underline var(--fg);
+}
+
 .nav-links {
 	display: flex;
 	list-style: none;
