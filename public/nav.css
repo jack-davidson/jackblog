@@ -33,7 +33,7 @@ nav {
 @media all and (max-width: 1000px) {
 	nav {
 		flex-direction: column;
-		font-size: 250%;
+		font-size: 3em;
 		padding-left: auto;
 		padding-right: auto;
 		margin-left: auto;
@@ -42,4 +42,31 @@ nav {
 	.nav-links {
 		font-size: 80%;
 	}
+}
+
+@media all and (max-width: 835px) {
+    nav {
+        font-size: 2.5em;
+    }
+}
+
+@media all and (max-width: 575px) {
+    nav {
+        font-size: 2.5em;
+    }
+}
+
+@media all and (max-width: 500px) {
+    nav {
+        font-size: 2em;
+        padding-left: 0;
+        margin-left: 0;
+    }
+    .nav-item {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .logo {
+        font-size: 1.5em;
+    }
 }
