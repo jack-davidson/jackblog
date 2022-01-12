@@ -1,11 +1,14 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"html/template"
+	"os"
 	"time"
 
 	"github.com/gofiber/fiber/v2"
+	"github.com/gomarkdown/markdown"
 )
 
 const (
@@ -21,6 +24,13 @@ func RenderTemplate(c *fiber.Ctx, name string, data interface{}) error {
 	return tmpl.Execute(c, data)
 }
 
+func LoadBlogs(name string) []Article {
+	articles := []Article{}
+	data, _ := os.ReadFile(name)
+	json.Unmarshal(data, &articles)
+	return articles
+}
+
 func main() {
 	app := fiber.New()
 	app.Static("/", "./public", fiber.Static{
@@ -29,13 +39,17 @@ func main() {
 
 	app.Get("/", func(c *fiber.Ctx) error {
 		fmt.Println(c)
-		RenderTemplate(c, "index", nil)
+		RenderTemplate(c, "index", LoadBlogs("blog.json"))
 		return nil
 	})
 
 	app.Get("/blogs/:title", func(c *fiber.Ctx) error {
-		fmt.Println(c.Params("title"))
-		RenderTemplate(c, "blog", nil)
+		for _, article := range LoadBlogs("blog.json") {
+			if article.RouteTitle == c.Params("title") {
+				article.Body = template.HTML(markdown.ToHTML([]byte(article.Body), nil, nil)[:])
+				RenderTemplate(c, "blog", article)
+			}
+		}
 		return nil
 	})
 

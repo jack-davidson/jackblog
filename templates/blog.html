@@ -9,6 +9,7 @@
 
 		<link rel="stylesheet" href="/nav.css">
 		<link rel="stylesheet" href="/main.css">
+		<link rel="stylesheet" href="/blog.css">
 	</head>
 	<nav>
 		<a class="logo" href="/">Jackblog</a>
@@ -20,10 +21,13 @@
 	</nav>
 	<body>
 		<hr>
-		<ul class="blogs">
-			{{range .}}
-			<li><a href="/blogs/{{.RouteTitle}}">{{.Title}} <span class="blogdate">({{.Date}})</span></a></li>
-			{{end}}
-		</ul>
+		<div class="article">
+			<div class="title">{{.Title}}</div>
+			<span class="author">{{.Author}}</span>
+			<span class="date">{{.Date}}</span>
+			<div class="body">
+				{{.Body}}
+			</div>
+		</div>
 	</body>
 </html>
