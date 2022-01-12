@@ -36,3 +36,12 @@ a:hover {
 .blogdate {
 	color: var(--light);
 }
+
+@media all and (max-width: 1000px) {
+    .blogs {
+        font-size: 1.6em;
+	margin-top: 1.6em;
+	margin-left: 10%;
+	margin-right: 10%;
+    }
+}
