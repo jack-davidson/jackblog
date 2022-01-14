@@ -2,6 +2,8 @@ package main
 
 import (
 	"encoding/json"
+	"errors"
+	"fmt"
 	"html/template"
 	"os"
 
@@ -27,4 +29,23 @@ func NewBlog() Blog {
 		article.Body = template.HTML(markdown.ToHTML([]byte(article.Body), nil, nil)[:])
 	}
 	return blog
+}
+
+func (b Blog) FindByTitle(title string) (Article, error) {
+	for _, article := range b {
+		if article.Title == title {
+			return article, nil
+		}
+	}
+	return Article{}, errors.New(fmt.Sprintf("could not find article with .Title='%s'", title))
+}
+
+func (b Blog) FindByRouteTitle(routeTitle string) (Article, error) {
+	for _, article := range b {
+		if article.RouteTitle == routeTitle {
+			return article, nil
+		}
+	}
+	return Article{}, errors.New(fmt.Sprintf(
+		"could not find article with .RouteTitle='%s'", routeTitle))
 }

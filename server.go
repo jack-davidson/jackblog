@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"html/template"
 	"time"
@@ -34,11 +35,12 @@ func main() {
 	})
 
 	app.Get("/blogs/:title", func(c *fiber.Ctx) error {
-		for _, article := range NewBlog() {
-			if article.RouteTitle == c.Params("title") {
-				Render(c, "blog", article)
-			}
+		b := NewBlog()
+		article, err := b.FindByRouteTitle(c.Params("title"))
+		if err != nil {
+			return errors.New("404 Not Found")
 		}
+		Render(c, "blog", article)
 		return nil
 	})
 
