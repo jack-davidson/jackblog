@@ -8,6 +8,7 @@ require (
 	github.com/gomarkdown/markdown v0.0.0-20211212230626-5af6ad2f47df // indirect
 	github.com/gomarkdown/mdtohtml v0.0.0-20180202094705-7346712f31b4 // indirect
 	github.com/klauspost/compress v1.13.4 // indirect
+	github.com/lib/pq v1.10.4 // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/valyala/fasthttp v1.31.0 // indirect
 	github.com/valyala/tcplisten v1.0.0 // indirect
