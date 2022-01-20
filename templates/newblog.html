@@ -9,7 +9,6 @@
 
 		<link rel="stylesheet" href="/nav.css">
 		<link rel="stylesheet" href="/main.css">
-		<link rel="stylesheet" href="/blog.css">
 		<link rel="stylesheet" href="/newblog.css">
 	</head>
 	<nav>
@@ -23,13 +22,17 @@
 	<body>
 		<hr>
 		<div class="article">
-			<form>
+			<form action="/new/">
 				<div class="metadata">
-					<input class="title" placeholder="Title"></input>
-					<input class="author el" placeholder="Author"></input>
-					<input class="date el" placeholder="Date"></input>
+					<input name="title" class="title" placeholder="Title"></input>
+					<input name="author" class="author" placeholder="Author"></input>
+					<input name="date" class="date" placeholder="Date"></input>
+					<input type="password" name="password" class="password" placeholder="Authorization"></input>
 				</div>
-				<textarea placeholder="Write about something..."></textarea>
+				<div class="lower">
+					<textarea name="body" placeholder="Write about something..."></textarea>
+					<input id="submit" type="submit" value="Done">
+				</div>
 			</form>
 		</div>
 	</body>

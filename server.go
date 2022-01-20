@@ -35,6 +35,7 @@ func main() {
 	})
 
 	app.Get("/blogs/:title", func(c *fiber.Ctx) error {
+		fmt.Println(c)
 		b := NewBlog()
 		article, err := b.FindByRouteTitle(c.Params("title"))
 		if err != nil {
@@ -45,12 +46,19 @@ func main() {
 	})
 
 	app.Get("/blogs/", func(c *fiber.Ctx) error {
+		fmt.Println(c)
 		c.Redirect("/")
 		return nil
 	})
 
 	app.Get("/new/", func(c *fiber.Ctx) error {
+		fmt.Println(c)
 		Render(c, "newblog", nil)
+		return nil
+	})
+
+	app.Post("/new/", func(c *fiber.Ctx) error {
+		fmt.Println(c)
 		return nil
 	})
 

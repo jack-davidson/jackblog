@@ -1,31 +1,59 @@
 input {
-	border: solid var(--accent);
+	border: none;
 	font-family: monospace;
 	outline: none;
 	padding: 10px;
-}
-
-textarea {
-	border: solid var(--accent);
-	border-top: none;
-	outline: none;
-	font-size: 1.5em;
-	margin-left: 5%;
-	margin-right: 5%;
-	width: 70%;
-	height: 50%;
-	resize: none;
-	padding: 20px;
-}
-
-.el {
-	border-left: none;
+	color: black;
+	background-color: white;
+	font-size: 1.3em;
 }
 
 .metadata {
-	display: flex;
+	margin-top: 1em;
+	margin-left: 1em;
+	margin-right: 1em;
+	display: grid;
+	grid-template-columns: 25% 25% 25% 25%;
 }
 
-form {
-	width: 100%;
+textarea {
+	border: none;
+	outline: none;
+	font-size: 1.5em;
+	resize: none;
+	height: 50vh;
+	padding: 27px;
+}
+
+.lower {
+	display: flex;
+	flex-direction: column;
+}
+
+::placeholder {
+	color: grey
+}
+
+#submit {
+	color: grey;
+}
+
+#submit:hover{
+	color: black;
+}
+
+@media all and (max-width: 900px) {
+	.metadata {
+		grid-template-columns: 50% 50%;
+	}
+}
+
+@media all and (max-width: 650px) {
+	.metadata {
+		grid-template-columns: 100%;
+	}
+
+	input {
+		text-align: center;
+	}
 }
