@@ -1,0 +1,31 @@
+input {
+	border: solid var(--accent);
+	font-family: monospace;
+	outline: none;
+	padding: 10px;
+}
+
+textarea {
+	border: solid var(--accent);
+	border-top: none;
+	outline: none;
+	font-size: 1.5em;
+	margin-left: 5%;
+	margin-right: 5%;
+	width: 70%;
+	height: 50%;
+	resize: none;
+	padding: 20px;
+}
+
+.el {
+	border-left: none;
+}
+
+.metadata {
+	display: flex;
+}
+
+form {
+	width: 100%;
+}

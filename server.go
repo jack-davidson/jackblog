@@ -49,5 +49,10 @@ func main() {
 		return nil
 	})
 
+	app.Get("/new/", func(c *fiber.Ctx) error {
+		Render(c, "newblog", nil)
+		return nil
+	})
+
 	app.Listen(":3000")
 }
