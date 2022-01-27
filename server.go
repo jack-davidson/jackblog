@@ -1,7 +1,6 @@
 package main
 
 import (
-	"errors"
 	"fmt"
 	"html/template"
 	"time"
@@ -30,24 +29,19 @@ func main() {
 
 	app.Get("/", func(c *fiber.Ctx) error {
 		fmt.Println(c)
-		Render(c, "index", NewBlog())
+		Render(c, "index", nil)
 		return nil
 	})
 
-	app.Get("/blogs/:title", func(c *fiber.Ctx) error {
-		fmt.Println(c)
-		b := NewBlog()
-		article, err := b.FindByRouteTitle(c.Params("title"))
-		if err != nil {
-			return errors.New("404 Not Found")
-		}
-		Render(c, "blog", article)
+	app.Get("/about", func(c *fiber.Ctx) error {
 		return nil
 	})
 
-	app.Get("/blogs/", func(c *fiber.Ctx) error {
-		fmt.Println(c)
-		c.Redirect("/")
+	app.Get("/contact", func(c *fiber.Ctx) error {
+		return nil
+	})
+
+	app.Get("/portfolio", func(c *fiber.Ctx) error {
 		return nil
 	})
 
