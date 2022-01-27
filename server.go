@@ -57,10 +57,5 @@ func main() {
 		return nil
 	})
 
-	app.Post("/new/", func(c *fiber.Ctx) error {
-		fmt.Println(c)
-		return nil
-	})
-
 	app.Listen(":3000")
 }
